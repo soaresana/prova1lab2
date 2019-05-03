@@ -1,2 +1,8 @@
-# prova1lab2
-Prova 1 de Laboratório de Computação II
+# Prova 1 de Laboratório de Computação II
+Uma empresa de transporte privado urbano disponibiliza motoristas particulares para seus usuários por meio de um aplicativo. Para selecionar qual motorista será enviado para um usuário assim que é efetuada a chamada, é analisadas as seguintes condições:
+Condição mínima inicial de que o motorista não pode estar a mais de 3 km no passageiro;
+A cada dois motoristas VIPs chamados, é chamado um motorista normal;
+Motoristas que estão a mais tempo ociosos têm prioridade para serem chamados. 
+
+Para resolver o problema da seleção de motoristas pensamos em fazer duas fila de células duplas que possuem os seguintes atributos (ID do motorista (int), prox (Célula) e ant (Célula)), uma com motoristas normais e outra com motoristas VIPs. Junto com a “fila de espera de motoristas” colocaremos um vetor de dados que contém o ID do motorista junto com o nome e o tipo (se é VIP ou não). A partir do momento que um novo motorista loga no sistema para receber clientes, ele insere o ID. Com o ID, o sistema busca no vetor o tipo do motorista (se é VIP ou não). Se o motorista for VIP, o ID é inserido ao final da fila de espera de motoristas VIP. Se ele é um motorista normal, ele é adicionado no final da lista de espera normal. Quando um usuário chama por um motorista no aplicativo, o aplicativo ira buscar, na fila de motoristas VIP, o primeiro da fila que atende a condição de estar a menos de 3 km do usuário. Depois de dois motoristas VIPs direcionados para usuários, o sistema irá buscar na fila de motoristas normais. Se o sistema estiver direcionado para buscar na fila VIP, mas não encontrar nenhum motorista a menos de 3 km, ele buscará na fila de motoristas normais, (mesmo ao contrário). Caso não encontre nenhum motorista nas duas filas no raio de 3 km, o sistema faz uma nova busca agora com o raio de 5km (considerando a prioridade inicial entre VIP e normal). Caso não seja encontrado nenhum motorista também com o raio de 5km, o sistema informa que não há motoristas disponíveis na região.
+
